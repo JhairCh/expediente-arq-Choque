@@ -3,23 +3,46 @@ Variante6 - Taller y soporte técnico
 Esta variante corresponde al dominio de soporte técnico y gestión de órdenes de trabajo, donde se reciben equipos o tickets, se asignan a técnicos y se realiza el seguimiento de cada orden hasta su cierre.
 
 
+
 Actores del sistema
 
-Cliente	:	Solicitar el servicio, consultar el estado de su orden y recibir una notificación cuando el equipo este listo para ser entregado
+Cliente	: Solicitar el servicio, consultar el estado de su orden y recibir una notificación cuando el equipo este listo para ser entregado
 
-Tecnico	:	Consultar las ordenes asignadas, registrar diagnósticos, actualizar avances y modificar el estado de las ordenes durante la reparación. 
+Técnico	: Consultar las ordenes asignadas, registrar diagnósticos, actualizar avances y modificar el estado de las ordenes durante la reparación. 
 
 Jefe de taller:	Supervisar las ordenes, asignar y reasignar técnicos, establecer prioridades y resolver incidencias relacionadas con la gestión del trabajo.
 
 
+
 Inventario de módulos
 
-Gestión de ordenes de trabajo :	Registrar las ordenes, almacenar su información y controlar las transiciones de estado hasta su cierre
+- Gestión de ordenes de trabajo : Registrar las ordenes, almacenar su información y controlar las transiciones de estado hasta su cierre
+- Gestión de técnicos :	Administrar la información, especialidades y disponibilidad de los técnicos del taller
+- Asignación y priorización : Asignar ordenes a técnicos y gestionar las reglas de prioridad de cada trabajo
+- Gestión de repuestos : Registrar los repuestos disponibles y controlar los repuestos utilizados en las ordenes de trabajo
+- Reportes : Generar resúmenes sobre la carga de trabajo, estados de las ordenes y tiempos de resolución
 
-Gestión de técnicos :	Administrar la información, especialidades y disponibilidad de los técnicos del taller
 
-Asignación y priorización :	Asignar ordenes a técnicos y gestionar las reglas de prioridad de cada trabajo
 
-Gestión de repuestos :	Registrar los repuestos disponibles y controlar los repuestos utilizados en las ordenes de trabajo
+Primer diagrama de clases
 
-Reportes : Generar resúmenes sobre la carga de trabajo, estados de las ordenes y tiempos de resolucion
+Se seleccionaron las clases necesarias para representar una orden de trabajo, el equipo atendido, el cliente, los técnicos, sus asignaciones y los repuestos utilizados.
+
+- Cliente: representa al usuario que solicita el servicio.
+- Orden de Trabajo: representa el trabajo solicitado y su ciclo de vida.
+- Equipo: representa el equipo recibido para diagnóstico o reparación.
+- Técnico: representa al personal encargado de realizar los trabajos.
+- Asignación: registra la relación entre una orden y el técnico encargado.
+- Repuesto: representa los componentes que pueden utilizarse durante una reparación.
+
+
+
+Atributos de calidad críticos
+
+Mantenibilidad
+La mantenibilidad, porque las reglas de asignación y priorización de órdenes pueden cambiar con frecuencia según las necesidades del taller. El sistema debe permitir modificar estas reglas sin afectar otras funcionalidades ni generar cambios innecesarios en todo el sistema.
+
+Fiabilidad
+La fiabilidad, porque el estado y avance de cada orden deben representar correctamente la situación real del equipo. Una información incorrecta podría generar expectativas equivocadas en el cliente y afectar la gestión del taller.
+
+
