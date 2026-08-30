@@ -1,0 +1,27 @@
+Estudiante: Jhair Anderson Choque
+Variante6 - Taller y soporte técnico
+Esta variante corresponde al dominio de soporte técnico y gestión de órdenes de trabajo, donde se reciben equipos o tickets, se asignan a técnicos y se realiza el seguimiento de cada orden hasta su cierre.
+
+
+Actores del sistema
+
+Cliente	:	Solicitar el servicio, consultar el estado de su orden y recibir una notificación cuando el equipo este listo para ser entregado
+
+Tecnico	:	Consultar las ordenes asignadas, registrar diagnósticos, actualizar avances y modificar el estado de las ordenes durante la reparación. 
+
+Jefe de taller:	Supervisar las ordenes, asignar y reasignar técnicos, establecer prioridades y resolver incidencias relacionadas con la gestión del trabajo.
+
+
+Inventario de módulos
+
+Gestión de ordenes de trabajo :	Registrar las ordenes, almacenar su información y controlar las transiciones de estado hasta su cierre
+
+Gestión de técnicos :	Administrar la información, especialidades y disponibilidad de los técnicos del taller
+
+Asignación y priorización :	Asignar ordenes a técnicos y gestionar las reglas de prioridad de cada trabajo
+
+Gestión de repuestos :	Registrar los repuestos disponibles y controlar los repuestos utilizados en las ordenes de trabajo
+
+Notificaciones : Generar y enviar avisos al cliente cuando se producen eventos relevantes, como cuando una orden esta lista
+
+Reportes : Generar resúmenes sobre la carga de trabajo, estados de las ordenes y tiempos de resolucion
