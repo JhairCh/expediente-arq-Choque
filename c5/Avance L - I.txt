@@ -1,0 +1,7 @@
+
+SOLID - L LSP
+Se revisa la herencia para que una clase hija pueda sustituir a su clase padre, eso sin que se rompa lo que el sistema espera.
+
+
+SOLID - I ISP
+Dividir una interfaz grande en interfaces pequeñas según las capacidades de cada rol.
