@@ -1,0 +1,11 @@
+
+Para comenzar tomamos la Clase mas robusta el cual fue OrdenDeTrabajo, el cual tenia varias responsabilidades, aplicando el S de Solid, separamos esas responsabilidades.
+
+entonces luego al tener mas clases cada una tiene una responsabilidad mas clara.
+
+
+Para la parte O, tenemos que un switch que cada que apareciera una nueva regla esta clase debe ser modificada.
+en nuestro caso tendremos un Gestor de asignación, esto para los trabajos que se generen.
+
+Entonces para ellos se crea una interfaz para poder agregar nuevas reglas sin modificar el code existente, entonces la clase Regla asignación será abierto a extensión, cerrado a modificación.
+
