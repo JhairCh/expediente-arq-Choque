@@ -1,0 +1,4 @@
+
+En DIP los generadores de Reportes estaban directamente relacionados con implementaciones concretas, esto hace que si se quiere cambiar un SQL por otra implementación, o Email por WhatsApp se deba tocar el Generador de Reportes
+
+entonces se aplica el DIP haciendo que el Generador de reportes dependa de interfaces como  Orden Rpositori o el Canal Notificación, en lugar de depender directamente de SQL o el Email, eso hace que sea posible cambiar las implementaciones sin modificar la clase principal.
