@@ -1,0 +1,1 @@
+P1.1 — Deteccion de violaciones SOLID
