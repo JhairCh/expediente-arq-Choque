@@ -66,4 +66,38 @@ public interface ILectorLibroDeControlados
     void VerLibroDeControlados();
 }
 
+//Cajero solo se encarga de Registra pedido
+//Refactor: Jhair Anderson Choque
+
+public class Cajero : IRegistradorDePedidos
+{
+    public void RegistrarPedido(string medicamento, int cantidad)
+        => Console.WriteLine($"[CAJA] Pedido: {cantidad} x {medicamento}");
+}
+
+//Y el farmaceutico se encarga de realizar todas las que le corresponden
+
+public class Farmaceutico :
+    IRegistradorDePedidos,
+    IAutorizadorDeVentaControlada,
+    IAjustadorDePrecios,
+    ILectorLibroDeControlados
+{
+    public void RegistrarPedido(string medicamento, int cantidad)
+        => Console.WriteLine($"[FARM] Pedido: {cantidad} x {medicamento}");
+
+    public void AutorizarVentaControlada(string medicamento)
+        => Console.WriteLine(
+            $"[FARM] Venta controlada de {medicamento} autorizada");
+
+    public void AjustarPrecio(string medicamento, decimal nuevoPrecio)
+        => Console.WriteLine(
+            $"[FARM] {medicamento} ahora cuesta {nuevoPrecio:0.00} Bs");
+
+    public void VerLibroDeControlados()
+        => Console.WriteLine(
+            "[FARM] Libro de medicamentos controlados");
+}
+
+
 
