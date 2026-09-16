@@ -20,3 +20,7 @@ Cada estrategia implementa una forma distinta de calcular la tarifa y asi se eli
 
 Situacion 3
 
+El gimnasio contrato una pasarela para cobrar membresias en linea. El SDK del proveedor (no modificable) expone metodos como ChargeCard(amountCents, currencyIso, customerToken) : todo en ingles, montos en centavos y tokens que tu dominio no maneja. El proveedor podria cambiarse el proximo ano si sube la comision.
+
+En este caso se usaria Adapter, porque se necesita adaptar una interfaz externa a la que usa nuestro sistema
+Es decir que el dominio del gimnasio sigue trabajando con sus propios objetos y adapter traduce todo al formato que espera el SDK
