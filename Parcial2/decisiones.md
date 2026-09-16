@@ -8,4 +8,15 @@ Diria que es Observer, ya que hay un evento "la membresia vencio" y varios modul
 Entonces con observer, el modulo de socios solo avisa que ocurrio el vencimiento y todos los observadores reciben la notificacion.
 
 
+
 Situacion 2
+
+La tarifa de la hora de gimnasio se calcula distinto segun la franja: manana (tarifa plena), noche (recargo del 20% por demanda) y fin de semana (descuento del 30% con tope de 3 horas). Hoy ese calculo vive en un if/else dentro del modulo de cobros... y esta copiado en el modulo de cotizaciones. El dueno cambia las reglas cada temporada.
+
+Se usaria Strategy, Ya que existen distintas formas de calcular el mismo proceso, es decir el precio.
+Cada estrategia implementa una forma distinta de calcular la tarifa y asi se elimina el if/else gigante y no se duplica codigo 
+
+
+
+Situacion 3
+
