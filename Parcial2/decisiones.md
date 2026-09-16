@@ -30,3 +30,11 @@ Patron - Adapter
 
 En este caso se usaria Adapter, porque se necesita adaptar una interfaz externa a la que usa nuestro sistema
 Es decir que el dominio del gimnasio sigue trabajando con sus propios objetos y adapter traduce todo al formato que espera el SDK
+
+
+
+
+P2.3 Conexion Solid
+
+Mi implementación aplica el principio Open/Closed (OCP). La clase CobroGimnasio trabaja con el contrato EstrategiaTarifa y no depende de una tarifa específica. Si aparece una nueva forma de calcular el precio, solo se crea otra estrategia sin modificar el código existente.
+
