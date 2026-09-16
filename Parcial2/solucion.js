@@ -1,5 +1,5 @@
 // Solucion: Jhair Anderson Choque
-//se usara el caso de Strategy es decir la situacion 2
+// se usara el caso de Strategy es decir la situacion 2
 // Contrato
 class EstrategiaTarifa {
     calcular(horas, tarifaBase) {
