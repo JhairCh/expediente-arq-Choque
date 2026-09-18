@@ -1,4 +1,5 @@
 Nivel 1
+
 ```mermaid
 flowchart TB
 
@@ -16,23 +17,24 @@ tecnico -->|"gestiona ordenes asignadas"| sistema
 jefe -->|"supervisa, asigna y prioriza ordenes"| sistema
 
 
-Nivel 2:
+Nivel 2
+
 ```mermaid
 flowchart TB
 
-    cliente["👤 Cliente"]
-    tecnico["👤 Técnico"]
-    jefe["👤 Jefe de taller"]
+    cliente["Cliente"]
+    tecnico["Tecnico"]
+    jefe["Jefe de taller"]
 
-    subgraph sistema["🔧 SISTEMA DE GESTIÓN DE TALLER Y SOPORTE TÉCNICO"]
+    subgraph sistema["SISTEMA DE GESTION DE TALLER Y SOPORTE TECNICO"]
 
-        app["⚙️ Aplicación de Gestión<br>Gestiona órdenes, técnicos,<br>asignaciones, prioridades,<br>repuestos y reportes"]
+        app["Aplicacion de Gestion<br>Gestiona ordenes, tecnicos,<br>asignaciones, prioridades,<br>repuestos y reportes"]
 
 
     end
 
-    cliente -->|"solicita servicios y consulta órdenes"| app
-    tecnico -->|"consulta y actualiza órdenes"| app
+    cliente -->|"solicita servicios y consulta ordenes"| app
+    tecnico -->|"consulta y actualiza ordenes"| app
     jefe -->|"supervisa, asigna y prioriza"| app
 
    
