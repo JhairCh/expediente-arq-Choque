@@ -15,7 +15,7 @@ sistema["SISTEMA DE GESTION DE TALLER<br>Y SOPORTE TECNICO<br>Gestiona ordenes d
 cliente -->|"solicita servicios y consulta ordenes"| sistema
 tecnico -->|"gestiona ordenes asignadas"| sistema
 jefe -->|"supervisa, asigna y prioriza ordenes"| sistema
-
+```
 
 Nivel 2
 
@@ -37,4 +37,4 @@ flowchart TB
     tecnico -->|"consulta y actualiza ordenes"| app
     jefe -->|"supervisa, asigna y prioriza"| app
 
-   
+```
