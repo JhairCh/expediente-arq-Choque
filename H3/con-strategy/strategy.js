@@ -31,5 +31,29 @@ class GestorAsignacion{
     }
 }
 
+// Ejemplo
 
+const orden ={
+    id: 1,
+    especialidad: "Electronica"
+};
+
+const tecnicos = [
+    {
+        nombre: "Juan",
+        especialidad: "Electronica",
+        disponibilidad: false
+    },
+    {
+        nombre: "Carlos",
+        especialidad: "Software",
+        disponibilidad: true
+    }
+];
+
+const estrategia = new AsignarPorDisponibilidad();
+const gestor = new GestorAsignacion(estrategia);
+
+const tecnicoAsignado = gestor.asignar(orden, tecnicos);
+console.log("Tecnico asignado:", tecnicoAsignado.nombre);
 
