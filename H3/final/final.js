@@ -88,5 +88,48 @@ class OrdenDeTrabajo {
             console.log("No se encontro un tecnico disponible.");
         }
     }
+        
+    cambiarEstado(nuevoEstado) {
+        this.estado = nuevoEstado;
+
+        console.log(
+            `Orden ${this.id} cambió a: ${nuevoEstado}`
+        );
+
+        this.notificar();
+    }
+
+    notificar() {
+        this.observadores.forEach(observador => {
+            observador.actualizar(this);
+        });
+    }
 
 }
+
+// Ejemplo
+
+const tecnicos =[
+    new Tecnico("Juan", "Electronica", false),
+    new Tecnico("Carlos", "Software", true)
+];
+
+const cliente = new Cliente("Pedro");
+
+//Asignar estrategia
+const estrategia = new AsignarPorEspecialidad();
+const orden = new OrdenDeTrabajo(
+    1, "Electronica", estrategia
+    );
+
+// Ponemos al cliente y tecnico
+
+orden.suscribir(cliente);
+orden.suscribir(tecnicos[0]);
+
+//Asignar tecnico por Strategy y el Observer notifica
+orden.asignarTecnico(tecnicos);
+
+
+
+
