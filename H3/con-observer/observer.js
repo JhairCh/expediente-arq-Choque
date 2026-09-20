@@ -52,3 +52,15 @@ class Tecnico {
     }
 }
 
+
+//Ejemplo
+
+const orden = new OrdenDeTrabajo(1);
+
+const cliente = new Cliente("Carlos");
+const tecnico = new Tecnico("Juan");
+
+orden.suscribir(cliente);
+orden.suscribir(tecnico);
+
+orden.cambiarEstado("Lista");
