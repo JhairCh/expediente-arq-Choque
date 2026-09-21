@@ -93,7 +93,7 @@ class OrdenDeTrabajo {
         this.estado = nuevoEstado;
 
         console.log(
-            `Orden ${this.id} cambió a: ${nuevoEstado}`
+            `Orden ${this.id} cambio a: ${nuevoEstado}`
         );
 
         this.notificar();
@@ -129,7 +129,4 @@ orden.suscribir(tecnicos[0]);
 
 //Asignar tecnico por Strategy y el Observer notifica
 orden.asignarTecnico(tecnicos);
-
-
-
 
