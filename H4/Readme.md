@@ -5,6 +5,7 @@ El sistema permite gestionar las órdenes de trabajo de un taller técnico, asig
 En esta etapa se integran los patrones Observer y Strategy.
 
 Nivel 1
+```mermaid
 flowchart TB
 
     cliente["Cliente"]
@@ -21,6 +22,8 @@ flowchart TB
 
     sistema -->|"Envía notificaciones"| notificaciones
     notificaciones -->|"Notifica al cliente"| cliente
+...
+```
 Descripción
 
 El sistema centraliza la gestión de las órdenes de trabajo del taller.
