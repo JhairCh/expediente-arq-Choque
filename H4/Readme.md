@@ -4,26 +4,21 @@ El sistema permite gestionar las ordenes de trabajo de un taller tecnico, realiz
 
 En esta etapa se integran los patrones Observer y Strategy.
 
-Nivel 1 — Contexto del sistema
+## Nivel 1
+
+```mermaid
 flowchart TB
 
-    cliente["Cliente<br>Solicita servicio, consulta el estado<br>y recibe notificaciones"]
+    cliente["Cliente"]
+    tecnico["Tecnico"]
+    jefe["Jefe de Taller"]
 
-    tecnico["Tecnico<br>Consulta ordenes asignadas,<br>registra diagnosticos y avances"]
+    sistema["Sistema de Gestion de Taller y Soporte Tecnico"]
 
-    jefe["Jefe de Taller<br>Asigna tecnicos, establece prioridades<br>y supervisa las ordenes"]
-
-    sistema["SISTEMA DE GESTION DE TALLER<br>Y SOPORTE TECNICO<br>Gestiona ordenes, tecnicos,<br>asignaciones y seguimiento"]
-
-    notificaciones["Servicio de Notificaciones<br>Email / WhatsApp"]
-
-
-    cliente -->|"Solicita servicio y consulta estado"| sistema
-    tecnico -->|"Consulta y actualiza ordenes"| sistema
-    jefe -->|"Asigna y supervisa ordenes"| sistema
-
-    sistema -->|"Envia avisos sobre cambios"| notificaciones
-    notificaciones -->|"Entrega notificacion"| cliente
+    cliente --> sistema
+    tecnico --> sistema
+    jefe --> sistema
+```
 
 Descripcion
 
