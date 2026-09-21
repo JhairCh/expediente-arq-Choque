@@ -1,12 +1,10 @@
-Sistema de Gestion de Taller y Soporte Tecnico
+Sistema de Gestión de Taller y Soporte Técnico
 
-El sistema permite gestionar las ordenes de trabajo de un taller tecnico, realizar la asignacion de tecnicos y mantener informados a los usuarios sobre los cambios de estado de sus ordenes.
+El sistema permite gestionar las órdenes de trabajo de un taller técnico, asignar técnicos y realizar el seguimiento de las órdenes.
 
 En esta etapa se integran los patrones Observer y Strategy.
 
-## Nivel 1
-
-```mermaid
+Nivel 1
 flowchart TB
 
     cliente["Cliente"]
@@ -15,62 +13,112 @@ flowchart TB
 
     sistema["Sistema de Gestion de Taller y Soporte Tecnico"]
 
-    cliente --> sistema
-    tecnico --> sistema
-    jefe --> sistema
-```
+    notificaciones["Servicio de Notificaciones"]
 
-Descripcion
+    cliente -->|"Solicita servicio y consulta estado"| sistema
+    tecnico -->|"Consulta y actualiza ordenes"| sistema
+    jefe -->|"Asigna y supervisa ordenes"| sistema
 
-El Sistema de Gestion de Taller y Soporte Tecnico centraliza la gestion de las ordenes de trabajo.
+    sistema -->|"Envía notificaciones"| notificaciones
+    notificaciones -->|"Notifica al cliente"| cliente
+Descripción
 
-El Cliente solicita servicios y consulta el estado de su orden. El Tecnico consulta las ordenes que tiene asignadas y registra sus avances. El Jefe de Taller supervisa las ordenes y realiza la asignacion de tecnicos.
+El sistema centraliza la gestión de las órdenes de trabajo del taller.
 
-El sistema tambien se relaciona con un Servicio de Notificaciones, utilizado para informar al cliente cuando ocurre un cambio relevante en su orden.
+El Cliente solicita servicios y consulta el estado de sus órdenes. El Técnico consulta las órdenes asignadas y registra sus avances. El Jefe de Taller supervisa las órdenes y asigna técnicos.
 
-Nivel 2 — Contenedores principales
+El Servicio de Notificaciones permite comunicar al cliente los cambios importantes relacionados con su orden.
+
+Nivel 2
 flowchart TB
 
     cliente["Cliente"]
     tecnico["Tecnico"]
     jefe["Jefe de Taller"]
 
-    subgraph sistema["SISTEMA DE GESTION DE TALLER Y SOPORTE TECNICO"]
+    subgraph sistema["Sistema de Gestion de Taller y Soporte Tecnico"]
 
-        aplicacion["Aplicacion de Gestion<br>Coordina las operaciones del sistema"]
+        app["Aplicacion de Gestion"]
 
-        ordenes["Gestion de Órdenes<br>Registra ordenes y controla sus estados<br><br>Observer<br>Notifica cambios a los interesados"]
+        ordenes["Gestion de Ordenes"]
 
-        asignacion["Asignacion de Tecnicos<br>Selecciona la regla para asignar tecnicos<br><br>Strategy<br>Por especialidad / disponibilidad"]
+        observer["Observer<br>Notificacion de cambios"]
 
-        datos["Base de Datos<br>Ordenes, clientes, tecnicos,<br>equipos y asignaciones"]
+        asignacion["Asignacion de Tecnicos"]
+
+        strategy["Strategy<br>Reglas de asignacion"]
+
+        datos["Base de Datos"]
 
     end
 
-    notificaciones["Servicio de Notificaciones<br>Email / WhatsApp"]
+    notificaciones["Servicio de Notificaciones"]
 
+    cliente -->|"Consulta orden"| app
+    tecnico -->|"Actualiza orden"| app
+    jefe -->|"Gestiona asignaciones"| app
 
-    cliente -->|"Solicita y consulta"| aplicacion
-    tecnico -->|"Consulta y actualiza"| aplicacion
-    jefe -->|"Asigna y supervisa"| aplicacion
+    app -->|"Gestiona"| ordenes
+    app -->|"Solicita tecnico"| asignacion
 
-    aplicacion -->|"Gestiona"| ordenes
-    aplicacion -->|"Solicita asignacion"| asignacion
+    ordenes -->|"Utiliza"| observer
+    asignacion -->|"Utiliza"| strategy
 
-    ordenes -->|"Consulta y guarda informacion"| datos
-    asignacion -->|"Obtiene tecnicos disponibles"| datos
+    ordenes -->|"Guarda datos"| datos
+    asignacion -->|"Consulta tecnicos"| datos
 
-    ordenes -->|"Cambio de estado"| notificaciones
-    asignacion -->|"Tecnico asignado"| ordenes
+    observer -->|"Envia avisos"| notificaciones
+    asignacion -->|"Asigna tecnico"| ordenes
+Descripción
 
-Descripcion del Nivel 2
+La Aplicación de Gestión coordina las operaciones principales del sistema.
 
-La Aplicacion de Gestion coordina las operaciones principales del sistema.
+Gestión de Órdenes se encarga de registrar las órdenes y controlar sus estados. Dentro de este componente se utiliza Observer, encargado de notificar los cambios de la orden a los interesados.
 
-El modulo Gestion de Órdenes controla las ordenes de trabajo y sus cambios de estado. En este modulo se encuentra el patron Observer, utilizado para notificar al cliente y al tecnico cuando ocurre un cambio en una orden.
+Asignación de Técnicos se encarga de seleccionar el técnico correspondiente. Dentro de este componente se utiliza Strategy, permitiendo cambiar la regla utilizada para realizar la asignación.
 
-El modulo Asignacion de Tecnicos se encarga de seleccionar el tecnico correspondiente. En este modulo se encuentra Strategy, permitiendo cambiar la forma de asignacion, por ejemplo, utilizando una estrategia por especialidad o por disponibilidad.
+La Base de Datos almacena la información de clientes, técnicos, equipos, órdenes y asignaciones.
 
-La Base de Datos almacena la informacion necesaria de clientes, tecnicos, equipos, ordenes y asignaciones.
+El Servicio de Notificaciones representa el servicio utilizado para enviar avisos al cliente.
 
-El Servicio de Notificaciones representa el medio externo utilizado para enviar avisos al cliente.
+Integración de Observer y Strategy
+
+Los dos patrones participan en el mismo flujo de una orden:
+
+flowchart TB
+
+    inicio["Orden de Trabajo"]
+
+    estrategia["Strategy"]
+
+    especialidad["Asignar por Especialidad"]
+    disponibilidad["Asignar por Disponibilidad"]
+
+    tecnicoAsignado["Tecnico asignado"]
+
+    cambio["Cambio de estado"]
+
+    observer["Observer"]
+
+    cliente["Cliente"]
+    tecnico["Tecnico"]
+
+    inicio --> estrategia
+
+    estrategia --> especialidad
+    estrategia --> disponibilidad
+
+    especialidad --> tecnicoAsignado
+    disponibilidad --> tecnicoAsignado
+
+    tecnicoAsignado --> cambio
+    cambio --> observer
+
+    observer --> cliente
+    observer --> tecnico
+
+Strategy permite seleccionar la forma de asignar un técnico sin modificar la lógica principal de la orden.
+
+Observer permite notificar automáticamente a los interesados cuando cambia el estado de la orden.
+
+De esta manera, ambos patrones participan en un mismo proceso: Strategy realiza la asignación y Observer comunica el cambio producido en la orden.
