@@ -33,6 +33,7 @@ El Cliente solicita servicios y consulta el estado de sus órdenes. El Técnico 
 El Servicio de Notificaciones permite comunicar al cliente los cambios importantes relacionados con su orden.
 
 Nivel 2
+```mermaid
 flowchart TB
 
     cliente["Cliente"]
@@ -72,6 +73,8 @@ flowchart TB
 
     observer -->|"Envia avisos"| notificaciones
     asignacion -->|"Asigna tecnico"| ordenes
+...
+```
 Descripción
 
 La Aplicación de Gestión coordina las operaciones principales del sistema.
