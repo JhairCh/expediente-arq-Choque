@@ -90,7 +90,7 @@ El Servicio de Notificaciones representa el servicio utilizado para enviar aviso
 Integración de Observer y Strategy
 
 Los dos patrones participan en el mismo flujo de una orden:
-
+```mermaid
 flowchart TB
 
     inicio["Orden de Trabajo"]
@@ -122,7 +122,8 @@ flowchart TB
 
     observer --> cliente
     observer --> tecnico
-
+...
+```
 Strategy permite seleccionar la forma de asignar un técnico sin modificar la lógica principal de la orden.
 
 Observer permite notificar automáticamente a los interesados cuando cambia el estado de la orden.
