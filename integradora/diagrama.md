@@ -1,3 +1,4 @@
+```mermaid
 classDiagram
 direction TB
 
@@ -65,3 +66,5 @@ Pedido "1" --> "1..*" Menu : contiene
 Pedido --> TipoMenu : tiene
 Pedido --> EstadoPedido : tiene
 GeneradorReportes --> Pedido : consulta
+
+```
