@@ -5,7 +5,7 @@
 
 El sistema necesita informar al cliente y al técnico cuando una orden de trabajo cambia de estado. Además, el taller puede utilizar diferentes criterios para asignar una orden a un técnico, como la especialidad o la disponibilidad.
 
-Estas necesidades requieren separar la notificación de los cambios y las reglas utilizadas para realizar las asignaciones.
+Por esta razón, se necesita separar las reglas utilizadas para asignar técnicos de la notificación de los cambios que ocurren en una orden.
 
 ## Decisión
 
